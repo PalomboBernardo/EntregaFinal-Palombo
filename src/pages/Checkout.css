@@ -1,0 +1,134 @@
+/* src/pages/Checkout.css */
+
+.checkoutPage {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkoutCard {
+    width: min(920px, 100%);
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+}
+
+.checkoutCard h1 {
+    margin: 0 0 6px 0;
+    font-size: 34px;
+    color: #0f172a;
+}
+
+.muted {
+    color: rgba(15, 23, 42, 0.65);
+    margin: 0 0 18px 0;
+}
+
+.checkoutSummary {
+    background: rgba(37, 99, 235, 0.04);
+    border: 1px solid rgba(37, 99, 235, 0.10);
+    border-radius: 14px;
+    padding: 18px;
+    margin: 18px 0 18px 0;
+}
+
+.checkoutSummary h2 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.checkoutItems {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.checkoutItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+}
+
+.checkoutItem strong {
+    color: #0f172a;
+}
+
+.checkoutTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.18);
+    font-size: 16px;
+}
+
+.checkoutTotal strong {
+    font-size: 18px;
+}
+
+.checkoutForm {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field span {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.field input {
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    border-radius: 12px;
+    outline: none;
+    transition: border .15s ease, box-shadow .15s ease;
+}
+
+.field input:focus {
+    border-color: rgba(37, 99, 235, 0.55);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.btn {
+    height: 46px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn--primary {
+    grid-column: 1 / -1;
+    background: #2563eb;
+    color: white;
+}
+
+.btn--primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+@media (max-width: 720px) {
+    .checkoutForm {
+        grid-template-columns: 1fr;
+    }
+}

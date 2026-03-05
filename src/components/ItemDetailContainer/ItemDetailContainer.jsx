@@ -4,7 +4,7 @@ import { services } from "../../services/index.js";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 import "./ItemDetailContainer.css";
 
-const ItemDetailContainer = ({ onAddToCart }) => {
+const ItemDetailContainer = () => {
     const { itemId } = useParams();
 
     const [item, setItem] = useState(null);
@@ -23,7 +23,7 @@ const ItemDetailContainer = ({ onAddToCart }) => {
     if (loading) return <p className="idcMessage">Cargando detalle...</p>;
     if (!item) return <p className="idcMessage">Producto no encontrado.</p>;
 
-    return <ItemDetail item={item} onAddToCart={onAddToCart} />;
+    return <ItemDetail item={item} />;
 };
 
 export default ItemDetailContainer;

@@ -26,8 +26,6 @@ const Home = () => {
                     className="homeLogo"
                 />
 
-                {/* 👇 SACAMOS el AgroStore escrito */}
-
                 <p className="homeSubtitle">
                     Insumos para el agro con foco en calidad, asesoramiento y
                     soluciones reales para cada etapa del cultivo.

@@ -1,9 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import "./NavBar.css";
+import { useCart } from "../../context/CartContext.jsx";
 
-const NavBar = ({ totalItems = 0 }) => {
+const NavBar = () => {
     const location = useLocation();
+    const { totalItems } = useCart();
 
     const linkClass = ({ isActive }) =>
         isActive ? "nav__link nav__link--active" : "nav__link";
@@ -12,7 +14,8 @@ const NavBar = ({ totalItems = 0 }) => {
         location.pathname.startsWith("/tienda") ||
         location.pathname.startsWith("/category") ||
         location.pathname.startsWith("/item") ||
-        location.pathname.startsWith("/cart");
+        location.pathname.startsWith("/cart") ||
+        location.pathname.startsWith("/checkout");
 
     return (
         <header className="nav">
@@ -62,4 +65,3 @@ const NavBar = ({ totalItems = 0 }) => {
 };
 
 export default NavBar;
-

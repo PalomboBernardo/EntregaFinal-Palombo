@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ItemCount.css";
 
-/**
- * Reglas:
- * - El contador NO suma de a 1 fijo.
- * - Suma/resta por "step" (ej: 10 L o 1 tn), y muestra la unidad.
- *
- * Props:
- * - stock: máximo
- * - initial: valor inicial (si no viene, usa step)
- * - step: paso (10 o 1)
- * - unit: "L" o "tn"
- * - onAdd(quantity): callback para agregar al carrito
- */
-
 const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
 
 const ItemCount = ({ stock = 1000, initial, step = 1, unit = "u", onAdd }) => {
@@ -25,7 +12,7 @@ const ItemCount = ({ stock = 1000, initial, step = 1, unit = "u", onAdd }) => {
     // si cambia el producto (step/unit), resetea el contador
     useEffect(() => {
         setCount(safeInitial);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }, [safeStep, unit]);
 
     const handleMinus = () =>

@@ -1,12 +1,15 @@
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
+import { useCart } from "../../context/CartContext.jsx";
 
-const money = (n) => Number(n).toLocaleString("es-AR", { maximumFractionDigits: 0 });
-const percent = (n) => `${(Number(n) * 100).toFixed(1)}%`;
+const money = (n) =>
+    Number(n).toLocaleString("es-AR", { maximumFractionDigits: 0 });
 
-const ItemDetail = ({ item, onAddToCart }) => {
+const ItemDetail = ({ item }) => {
+    const { addToCart } = useCart();
+
     const handleAdd = (quantity) => {
-        if (typeof onAddToCart === "function") onAddToCart(item, quantity);
+        addToCart(item, quantity);
     };
 
     const ivaRate = item.ivaRate ?? 0.21;
@@ -20,11 +23,9 @@ const ItemDetail = ({ item, onAddToCart }) => {
 
             <div className="itemDetail__info">
                 <p className="itemDetail__badge">{item.category}</p>
-
                 <h2 className="itemDetail__title">{item.title}</h2>
                 <p className="itemDetail__desc">{item.description}</p>
 
-                {/* bullets si existen */}
                 {Array.isArray(item.bullets) && item.bullets.length > 0 && (
                     <ul className="itemDetail__bullets">
                         {item.bullets.map((bullet, index) => (
@@ -37,14 +38,13 @@ const ItemDetail = ({ item, onAddToCart }) => {
                     <div className="itemDetail__priceLine">
                         <span className="itemDetail__label">Precio neto</span>
                         <span className="itemDetail__value">
-                            USD {money(priceNet)}{" "}
-                            <span className="itemDetail__muted">/ {item.unit}</span>
+                            $ {money(priceNet)} <span className="itemDetail__muted">/ {item.unit}</span>
                         </span>
                     </div>
 
                     <div className="itemDetail__priceLine">
                         <span className="itemDetail__label">IVA</span>
-                        <span className="itemDetail__value">{percent(ivaRate)}</span>
+                        <span className="itemDetail__value">{(ivaRate * 100).toFixed(1)}%</span>
                     </div>
                 </div>
 
