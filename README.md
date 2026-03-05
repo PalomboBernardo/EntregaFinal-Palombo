@@ -1,9 +1,10 @@
-# 🛒 NavegaLasRutas - E-commerce React  
-Entrega Final – Curso React (Coderhouse)
+# 🛒 NavegaLasRutas - E-commerce React
+
+Entrega Final – **Curso React JS (Coderhouse)**
 
 Aplicación web tipo **E-commerce** desarrollada con **React + Vite**, que permite visualizar un catálogo de productos, navegar entre categorías, ver el detalle de cada producto y simular una compra agregando productos al carrito.
 
-El proyecto implementa los principales conceptos de React vistos durante el curso, incluyendo **componentes, hooks, navegación con React Router y manejo de estado global para el carrito**.
+El proyecto implementa los principales conceptos vistos durante el curso, incluyendo **componentización, hooks, navegación con React Router, manejo de estado global y conexión con Firebase**.
 
 ---
 
@@ -15,29 +16,40 @@ El proyecto implementa los principales conceptos de React vistos durante el curs
 
 ## 📦 Funcionalidades
 
-- 📋 Catálogo general de productos
-- 🔎 Filtrado por categorías dinámicas
+- 📋 Catálogo dinámico de productos
+- 🔎 Filtrado por categorías
 - 📄 Vista de detalle de producto
-- ➕ Contador de unidades (`ItemCount`)
-- 🛒 Carrito de compras
-- 🧠 Manejo de estado global del carrito (Context)
-- 🔗 Navegación entre rutas con React Router
-- ❌ Ruta 404 personalizada
-- ⏳ Simulación de consultas async mediante Promises
-- ☁️ Conexión a Firebase para productos y órdenes
+- ➕ Selector de cantidad mediante **ItemCount**
+- 🛒 Sistema de carrito de compras
+- 🧠 Manejo de estado global con **React Context**
+- 🔗 Navegación entre rutas con **React Router**
+- ❌ Ruta **404** personalizada
+- ⏳ Simulación de consultas asincrónicas
+- ☁️ Integración con **Firebase Firestore**
 
 ---
 
 ## 🧩 Componentes principales
 
-- **NavBar** → navegación principal
-- **CartWidget** → indicador del carrito
-- **ItemListContainer** → contenedor del catálogo
-- **ItemList** → renderiza lista de productos
+El proyecto se organiza mediante componentes reutilizables siguiendo la separación entre **componentes contenedores y de presentación**.
+
+### Navegación
+- **NavBar** → barra de navegación principal
+- **CartWidget** → indicador de cantidad de productos en el carrito
+
+### Catálogo
+- **ItemListContainer** → obtiene productos desde la base de datos
+- **ItemList** → renderiza la lista de productos
 - **ItemCard** → tarjeta individual de producto
-- **ItemDetailContainer** → obtiene datos de un producto
-- **ItemDetail** → muestra información detallada
-- **ItemCount** → selector de cantidad
+
+### Detalle de producto
+- **ItemDetailContainer** → obtiene información del producto
+- **ItemDetail** → muestra la información del producto
+- **ItemCount** → selector de cantidad con validación de stock
+
+### Carrito
+- **Cart** → visualización de productos agregados
+- **Checkout** → generación de orden de compra
 
 ---
 
@@ -66,6 +78,49 @@ src
 
 ---
 
+## ✅ Requisitos del proyecto (Coderhouse)
+
+### Listado y detalle de productos
+
+- Generación dinámica del listado mediante **ItemListContainer**
+- Acceso al detalle del producto mediante **ItemDetailContainer**
+- Separación entre **componentes contenedores y de presentación**
+- Implementación del componente **ItemCount** con validaciones de cantidad mínima y límite por stock
+- Ocultamiento de **ItemCount** luego de agregar un producto al carrito
+
+### Navegación
+
+- Navegación entre catálogo, categorías, detalle, carrito y checkout mediante **React Router**
+- Links de navegación implementados en **NavBar**
+- Implementación del modelo **Single Page Application (SPA)** sin recarga del navegador
+- Ruta **404** para páginas inexistentes
+
+### Carrito de compras
+
+- Estado global del carrito implementado con **React Context**
+- Visualización de productos agregados dentro del componente **Cart**
+- Cálculo de cantidades, subtotales y total de compra
+- **CartWidget** mostrando el total de unidades agregadas al carrito
+
+### Firebase
+
+- Implementación de **Firebase Firestore** como base de datos
+- Colección de productos almacenada en Firestore
+- Consulta de productos desde React
+- Generación de documento de orden en Firestore al confirmar la compra
+- Visualización del **ID de la orden generada**
+
+### Experiencia de usuario
+
+- Renderizado condicional para mostrar loaders durante la carga de datos
+- Mensajes para diferentes estados:
+  - carrito vacío
+  - producto sin stock
+  - carga de productos
+- Confirmación de compra mostrando el **ID de la orden generada**
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 
 - **React**
@@ -78,28 +133,55 @@ src
 
 ## ▶️ Cómo ejecutar el proyecto
 
-1. Clonar el repositorio
+### 1️⃣ Clonar el repositorio
 
-https://github.com/PalomboBernardo/EntregaFinal-Palombo.git
+git clone https://github.com/PalomboBernardo/EntregaFinal-Palombo.git
 
-
-2. Instalar dependencias
+### 2️⃣ Instalar dependencias
 
 npm install
 
-
-3. Ejecutar el servidor de desarrollo
+### 3️⃣ Ejecutar servidor de desarrollo
 
 npm run dev
 
-4. Abrir en el navegador
+### 4️⃣ Abrir en el navegador
 
 http://localhost:5173
 
 
 ---
 
+## 🔥 Configuración de Firebase
+
+El proyecto utiliza **Firebase Firestore** para almacenar los productos y registrar las órdenes de compra.
+
+Pasos básicos:
+
+1. Crear un proyecto en **Firebase**
+2. Crear una base de datos en **Firestore**
+3. Crear una colección de productos (por ejemplo `products`)
+4. Configurar las credenciales en el archivo:
+
+src/utils/firebase.js
+
+
+⚠️ Se recomienda utilizar **variables de entorno** para proteger las credenciales.
+
+---
+
 ## 👨‍💻 Autor
 
-**Bernardo Palombo**  
-Proyecto realizado para el curso **React JS – Coderhouse**
+**Bernardo Palombo**
+
+Ingeniero Agrónomo  
+ATC – Timac Agro Argentina
+
+Proyecto desarrollado para el curso  
+**React JS – Coderhouse**
+
+---
+
+## ⭐ Observación
+
+Este proyecto fue desarrollado con fines educativos aplicando los conceptos aprendidos durante el curso de **React JS en Coderhouse**, incluyendo arquitectura de componentes, manejo de estado, navegación SPA y persistencia de datos con Firebase.
