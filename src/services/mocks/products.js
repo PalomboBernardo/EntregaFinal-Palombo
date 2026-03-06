@@ -1,5 +1,11 @@
+// src/services/mocks/products.js
+
 // Helper para imágenes en /public (sirve local y en Vercel)
-const img = (pathFromPublic) => `/${String(pathFromPublic).replace(/^\/+/, "")}`;
+// Acepta "images/..." o "/images/..." y siempre devuelve "/images/..."
+const img = (pathFromPublic) => {
+    const p = String(pathFromPublic || "");
+    return p.startsWith("/") ? p : `/${p}`;
+};
 
 // Delay para simular llamada async (requisito)
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -61,7 +67,11 @@ export const DATA = [
         ivaRate: 0.105,
         description:
             "Fertilizante microgranulado que estimula el desarrollo radicular y mejora el establecimiento del cultivo.",
-        bullets: ["Mejora expansión radicular", "Excelente arrancador", "Mayor eficiencia en uso de nutrientes"],
+        bullets: [
+            "Mejora expansión radicular",
+            "Excelente arrancador",
+            "Mayor eficiencia en uso de nutrientes",
+        ],
         image: img("images/products/fertilizantes/green-start.jpg"),
     },
 
@@ -104,7 +114,11 @@ export const DATA = [
         ivaRate: 0.105,
         description:
             "Bioestimulante foliar que mejora rendimiento bajo estrés: potencia fotosíntesis, tolerancia al estrés abiótico y el transporte interno de nutrientes.",
-        bullets: ["Antioxidante y movilizador de nutrientes", "Efecto osmótico (glicina betaína)", "Mejor transporte interno"],
+        bullets: [
+            "Antioxidante y movilizador de nutrientes",
+            "Efecto osmótico (glicina betaína)",
+            "Mejor transporte interno",
+        ],
         image: img("images/products/bioestimulantes/seactiv-gold.jpg"),
     },
     {
