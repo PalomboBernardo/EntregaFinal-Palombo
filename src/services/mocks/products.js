@@ -1,5 +1,5 @@
-// Helper para armar URLs de imágenes locales con Vite
-const img = (relativePath) => new URL(relativePath, import.meta.url).href;
+// Helper para imágenes en /public (sirve local y en Vercel)
+const img = (pathFromPublic) => `/${String(pathFromPublic).replace(/^\/+/, "")}`;
 
 // Delay para simular llamada async (requisito)
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -14,7 +14,6 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
  */
 
 export const DATA = [
-
     {
         id: "top-phos-280",
         title: "TOP-PHOS 280 HP",
@@ -31,7 +30,7 @@ export const DATA = [
             "Aporta N, P, Ca y S",
             "Activa crecimiento radicular y microbiología del suelo",
         ],
-        image: img("../../assets/products/fertilizantes/top-phos-280.jpg"),
+        image: img("images/products/fertilizantes/top-phos-280.jpg"),
     },
     {
         id: "top-phos-724",
@@ -49,7 +48,7 @@ export const DATA = [
             "Mejora raíces y establecimiento",
             "Alta respuesta en primeros estadios",
         ],
-        image: img("../../assets/products/fertilizantes/top-phos-724.jpg"),
+        image: img("images/products/fertilizantes/top-phos-724.jpg"),
     },
     {
         id: "green-start",
@@ -63,7 +62,7 @@ export const DATA = [
         description:
             "Fertilizante microgranulado que estimula el desarrollo radicular y mejora el establecimiento del cultivo.",
         bullets: ["Mejora expansión radicular", "Excelente arrancador", "Mayor eficiencia en uso de nutrientes"],
-        image: img("../../assets/products/fertilizantes/green-start.jpg"),
+        image: img("images/products/fertilizantes/green-start.jpg"),
     },
 
     {
@@ -78,7 +77,7 @@ export const DATA = [
         description:
             "Bioestimulante líquido que ayuda a superar estrés hídrico/térmico gracias al complejo GZA (glicina betaína, zeatina, ácidos húmicos y fúlvicos).",
         bullets: ["Tolerancia al estrés", "Estimula raíces", "Activa microbiología del suelo"],
-        image: img("../../assets/products/bioestimulantes/fertiactyl-gz.jpg"),
+        image: img("images/products/bioestimulantes/fertiactyl-gz.jpg"),
     },
     {
         id: "eurofit-max",
@@ -92,7 +91,7 @@ export const DATA = [
         description:
             "Bioestimulante activador de defensas naturales de la planta. Ayuda a sostener vigor y resiliencia ante condiciones adversas.",
         bullets: ["Activa defensas", "Mejora recuperación", "Vigor y resiliencia"],
-        image: img("../../assets/products/bioestimulantes/eurofit-max.jpg"),
+        image: img("images/products/bioestimulantes/eurofit-max.jpg"),
     },
     {
         id: "seactiv-gold-bmo",
@@ -106,7 +105,7 @@ export const DATA = [
         description:
             "Bioestimulante foliar que mejora rendimiento bajo estrés: potencia fotosíntesis, tolerancia al estrés abiótico y el transporte interno de nutrientes.",
         bullets: ["Antioxidante y movilizador de nutrientes", "Efecto osmótico (glicina betaína)", "Mejor transporte interno"],
-        image: img("../../assets/products/bioestimulantes/seactiv-gold.jpg"),
+        image: img("images/products/bioestimulantes/seactiv-gold.jpg"),
     },
     {
         id: "seactiv-vital",
@@ -120,7 +119,7 @@ export const DATA = [
         description:
             "Bioestimulante foliar que mejora rendimiento bajo estrés al aumentar fotosíntesis, resistencia al estrés abiótico y nutrición por mejor transporte de nutrientes.",
         bullets: ["Antioxidante y movilizador de nutrientes", "Efecto osmótico", "Mejor transporte interno"],
-        image: img("../../assets/products/bioestimulantes/seactiv-vital.jpg"),
+        image: img("images/products/bioestimulantes/seactiv-vital.jpg"),
     },
 
     {
@@ -135,7 +134,7 @@ export const DATA = [
         description:
             "Herbicida preemergente para control de malezas. Ideal para programas de control temprano (ejemplo de ficha).",
         bullets: ["Control temprano", "Preemergente", "Programa base de barbecho/siembra"],
-        image: img("../../assets/products/herbicidas/dual-gold.jpg"),
+        image: img("images/products/herbicidas/dual-gold.jpg"),
     },
     {
         id: "flex",
@@ -149,7 +148,7 @@ export const DATA = [
         description:
             "Herbicida para control postemergente (ejemplo) en malezas de hoja ancha. Usar según marbete.",
         bullets: ["Postemergente", "Hoja ancha", "Complemento de programa"],
-        image: img("../../assets/products/herbicidas/flex.jpg"),
+        image: img("images/products/herbicidas/flex.jpg"),
     },
     {
         id: "enelan",
@@ -163,7 +162,7 @@ export const DATA = [
         description:
             "Herbicida (ejemplo) para manejo de malezas en barbecho. Ajustar dosis a condición y objetivo.",
         bullets: ["Barbecho", "Manejo de malezas", "Rotación de modos de acción"],
-        image: img("../../assets/products/herbicidas/enelan.jpg"),
+        image: img("images/products/herbicidas/enelan.jpg"),
     },
 
     {
@@ -178,7 +177,7 @@ export const DATA = [
         description:
             "Insecticida (ejemplo) para control de lepidópteros. Aplicar según umbrales y recomendación técnica.",
         bullets: ["Control de lepidópteros", "Manejo por umbrales", "Estrategia anti-resistencia"],
-        image: img("../../assets/products/insecticidas/ampligo.jpg"),
+        image: img("images/products/insecticidas/ampligo.jpg"),
     },
     {
         id: "engeo",
@@ -192,7 +191,7 @@ export const DATA = [
         description:
             "Insecticida (ejemplo) para control de plagas chupadoras. Respetar dosis y momentos de aplicación.",
         bullets: ["Plagas chupadoras", "Protección del cultivo", "Rotación de activos"],
-        image: img("../../assets/products/insecticidas/engeo.jpg"),
+        image: img("images/products/insecticidas/engeo.jpg"),
     },
     {
         id: "karate-zeon",
@@ -206,7 +205,7 @@ export const DATA = [
         description:
             "Insecticida (ejemplo) de acción de contacto e ingestión. Usar con criterio técnico y buenas prácticas.",
         bullets: ["Acción rápida", "Contacto e ingestión", "Buenas prácticas"],
-        image: img("../../assets/products/insecticidas/karate-zeon.jpg"),
+        image: img("images/products/insecticidas/karate-zeon.jpg"),
     },
 
     {
@@ -221,7 +220,7 @@ export const DATA = [
         description:
             "Fungicida (ejemplo) para control preventivo/curativo temprano. Ideal para programas sanitarios.",
         bullets: ["Preventivo", "Programa sanitario", "Protección de hoja"],
-        image: img("../../assets/products/fungicidas/amistar-xtra.jpg"),
+        image: img("images/products/fungicidas/amistar-xtra.jpg"),
     },
     {
         id: "elatus",
@@ -235,7 +234,7 @@ export const DATA = [
         description:
             "Fungicida (ejemplo) para enfermedades foliares. Ajustar a presión de enfermedad.",
         bullets: ["Alta performance", "Enfermedades foliares", "Manejo integrado"],
-        image: img("../../assets/products/fungicidas/elatus.jpg"),
+        image: img("images/products/fungicidas/elatus.jpg"),
     },
     {
         id: "miravis-duo",
@@ -249,7 +248,7 @@ export const DATA = [
         description:
             "Fungicida (ejemplo) para programas de control y protección. Usar según recomendaciones.",
         bullets: ["Protección prolongada", "Programa sanitario", "Buenas prácticas"],
-        image: img("../../assets/products/fungicidas/miravis-duo.jpg"),
+        image: img("images/products/fungicidas/miravis-duo.jpg"),
     },
 ];
 

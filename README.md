@@ -6,6 +6,11 @@ Aplicación web tipo **E-commerce** desarrollada con **React + Vite**, que permi
 
 El proyecto implementa los principales conceptos vistos durante el curso, incluyendo **componentización, hooks, navegación con React Router, manejo de estado global y conexión con Firebase**.
 
+## 🌐 Demo online
+
+https://entrega-final-palombo.vercel.app
+
+
 ---
 
 ## 🚀 Demo
